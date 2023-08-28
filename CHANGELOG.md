@@ -1,3 +1,8 @@
+## 3.0.4
+Fix:
+- dependencies
+- duplicates issue
+
 ## 3.0.3
 Applied fixes and upgrades from the community ♥
 
@@ -57,4 +62,3 @@ Applied fixes and upgrades from the community ♥
 
 ## 1.0.0
 * Initial Release
-
