@@ -6,8 +6,8 @@ import 'package:rxdart/rxdart.dart';
 
 import '../models/distance_doc_snapshot.dart';
 import '../models/point.dart';
-import '../utils/math.dart';
 import '../utils/arrays.dart';
+import '../utils/math.dart';
 
 class BaseGeoFireCollectionRef<T> {
   final Query<T> _collectionReference;
@@ -115,7 +115,9 @@ class BaseGeoFireCollectionRef<T> {
 
     final precision = MathUtils.setPrecision(radius);
     final centerHash = center.hash.substring(0, precision);
-    final area = GeoFirePoint.neighborsOf(hash: centerHash)..add(centerHash);
+    final area = Set<String>.from(
+      GeoFirePoint.neighborsOf(hash: centerHash)..add(centerHash),
+    ).toList();
 
     final queries = area.map((hash) {
       final tempQuery = _queryPoint(hash, field);
